@@ -41,8 +41,8 @@ enum Type:
 	trueOrFalse | singleChoice 
 ;
 
-Bool:
-	'true' | 'false'
+enum Bool:
+	true | false
 ;
 
 
