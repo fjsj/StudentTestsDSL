@@ -1,0 +1,53 @@
+grammar br.ufpe.cin.test.Test with org.eclipse.xtext.common.Terminals
+
+generate test "http://www.ufpe.br/cin/test/Test"
+
+Main:
+	tests+=Test+
+	classes+=Class+
+	commands+=Command+
+;
+
+Test:
+	subject=ID 'test' name=ID '{'
+		elements+=Question+
+	'}'
+;
+
+Question:
+	type=Type 'question' name=ID '{'
+		'text' ':' text=STRING ';'
+		'score' ':' score=INT ';'
+		'choices' '{' elements+=Choice+ '}'
+		
+	'}'
+;
+
+Class:
+	'class' name=ID '{'
+		elements+=Student+
+	'}'
+;
+
+Student:
+	'student' fullName=STRING 'id' name=ID 'password' text=STRING ';'
+;
+
+Choice:
+	text=STRING '->' correct=Bool ';'
+;
+
+enum Type:
+	trueOrFalse | singleChoice 
+;
+
+Bool:
+	'true' | 'false'
+;
+
+
+Command:
+	'apply' testName=ID 'to' className=ID ';' 
+;
+
+
