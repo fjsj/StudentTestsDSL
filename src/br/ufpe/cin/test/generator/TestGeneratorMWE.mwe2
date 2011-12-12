@@ -3,8 +3,8 @@ module br.ufpe.cin.test.generator.TestGeneratorMWE
 
 import org.eclipse.emf.mwe.utils.*
 
-var targetDir
-var modelPath
+var targetDir = "src-gen"
+var modelPath = "src-gen"
 
 Workflow {
 
